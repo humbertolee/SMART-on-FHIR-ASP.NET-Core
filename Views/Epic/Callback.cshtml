@@ -1,0 +1,32 @@
+﻿<h3><span id='patientName' ' name='patientName'>Loading Patient...</span></h3>
+
+<div class="row">
+	<div class="col-1">DOB</div>
+	<div class="col-3"><span id='patientDob' name='patientDob'></span></div>
+</div>
+
+<nav>
+	<div class="nav nav-tabs" id="nav-tab" role="tablist">
+		<button class="nav-link active" id="nav-patient-tab" data-bs-toggle="tab" data-bs-target="#nav-patient" type="button" role="tab" aria-controls="nav-patient" aria-selected="true">Patient</button>
+		<button class="nav-link" id="nav-encounters-tab" data-bs-toggle="tab" data-bs-target="#nav-encounters" type="button" role="tab" aria-controls="nav-encounters" aria-selected="true">Encounters</button>
+		<button class="nav-link" id="nav-observations-tab" data-bs-toggle="tab" data-bs-target="#nav-observations" type="button" role="tab" aria-controls="nav-observations" aria-selected="false">Observations</button>
+	</div>
+</nav>
+<div class="tab-content" id="nav-tabContent">
+	<div class="tab-pane fade show active" id="nav-patient" role="tabpanel" aria-labelledby="nav-patient-tab">
+		<pre id="json-patient"></pre>
+	</div>
+	<div class="tab-pane fade show active" id="nav-encounters" role="tabpanel" aria-labelledby="nav-encounters-tab">
+		<pre id="json-encounters"></pre>
+	</div>
+
+	<div class="tab-pane fade" id="nav-observations" role="tabpanel" aria-labelledby="nav-observations-tab">
+		<pre id="json-observations"></pre>
+	</div>
+</div>
+
+@section scripts
+ {
+	<script src='@Url.Content("~/js/jquery.json-editor.min.js")'></script>
+	<script src='@Url.Content("~/js/my-fhir-client.js")'></script>
+}
