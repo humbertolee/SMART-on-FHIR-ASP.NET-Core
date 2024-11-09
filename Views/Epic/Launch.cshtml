@@ -14,7 +14,7 @@
 
 		// Connect to Epic
 		FHIR.oauth2.authorize({
-			client_id: '0e0c7fe4-9acb-40e6-b44e-ba884653bcae',
+			client_id: 'insert-your-epic-app-client-id',
 			scope: 'launch/patient online_access openid profile user/*.read launch user/*.* patient/MedicationRequest.read patient/Patient.read patient/Encounter.write patient/*.read offline_access patient/MedicationRequest.write patient/Patient.write patient/Observation.read patient/*.write patient/Encounter.read patient/Observation.write',
 			redirectUri: 'https://localhost:7179/epic/callback',
 			iss: launchParams.iss,

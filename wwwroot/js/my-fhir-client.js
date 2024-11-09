@@ -1,21 +1,15 @@
 ﻿FHIR.oauth2.ready().then(function (client) {
 
-    $.ajax({
-        type: 'POST',
-        url: '/smart/process',
-        data: {
-            jwt: client.state.tokenResponse.access_token,
-            pid: client.patient.id
-        }
-    });
+    // If you want to grab the patient ID and JWT token
+    var jwt = client.state.tokenResponse.access_token;
+    var pid = client.patient.id;
 
     // Render the current patient (or any error)
     client.patient.read()
     .then(
         function (data) {
-            var editor = new JsonEditor('#json-patient', data);
-            var patientJson = JSON.stringify(data, null, 4);
-            displayPatient(patientJson);
+            displayPatient(data);
+            var editor = new JsonEditor('#json-patient', data);            
         },
         function (error) {
             alert(error.stack);
@@ -53,8 +47,7 @@
         }
     );
 
-    function displayPatient(data) {
-        var patient = JSON.parse(data);
+    function displayPatient(patient) {
         var patientName = patient.name[0].family;
         if (patient.name[0].given.length > 0) {
             patientName = patientName + ', ' + patient.name[0].given[0];
